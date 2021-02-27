@@ -1,12 +1,12 @@
 # оформление примера lesson1_6_step_10 с использованием тест-ранера unittest
 
-from selenium imp ort webdriver
+import unittest
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
-import unittest
 
 class TestAbs(unittest.TestCase):
-    def test_abs1(self):
+    def test_url1(self):
 
         link = "http://suninjuly.github.io/registration1.html"  # рабочая ссылка
         browser = webdriver.Chrome()
@@ -37,13 +37,13 @@ class TestAbs(unittest.TestCase):
         # проверяем, что ожидаемый текст совпадает с текстом на странице сайта
         # self.assertEqual('что должно быть', 'что есть', 'что произошло')
         self.assertEqual("Congratulations! You have successfully registered!", welcome_text, "что-то произошло в тесте1")
-        time.sleep(10)
+        time.sleep(3)
           # закрываем браузер после всех манипуляций
         browser.quit()
 
-    def test_abs2(self):
+    def test_url2(self):
 
-        link = "http://suninjuly.github.io/registration2.html" #нерабочая ссылка
+        link = "http://suninjuly.github.io/registration1.html"  # рабочая ссылка
         browser = webdriver.Chrome()
         browser.get(link)
 
@@ -71,7 +71,10 @@ class TestAbs(unittest.TestCase):
 
         # проверяем, что ожидаемый текст совпадает с текстом на странице сайта
         # self.assertEqual('что должно быть', 'что есть', 'что произошло')
-        self.assertEqual("Congratulations! You have successfully registered!", welcome_text, "что-то произошло в тесте2")
+        self.assertEqual("Congratulations! You have successfully registered!", welcome_text, "что-то произошло в тесте1")
+        time.sleep(3)
+          # закрываем браузер после всех манипуляций
+        browser.quit()
 
 if __name__ == "__main__":
     unittest.main()
